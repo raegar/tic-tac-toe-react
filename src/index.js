@@ -22,6 +22,9 @@ function Square (props) {
 
     handleClick(i) {
         const squares = this.state.squares.slice(); //create copy of array
+        if(calculateWinner(squares) || squares[i]) {
+          return;
+        }
         squares[i] = this.state.xIsNext ? '🥛' : '🍪'; //modify copy
         this.setState({
             squares: squares,
@@ -39,7 +42,13 @@ function Square (props) {
     }
   
     render() {
-      const status = 'Next player: ' + (this.state.xIsNext ? '🥛' : '🍪');
+      const winner = calculateWinner(this.state.squares);
+      let status;
+      if (winner){
+        status = 'Winner: ' + winner;
+      } else {
+        status = 'Next player: ' + (this.state.xIsNext ? '🥛' : '🍪');
+      }
   
       return (
         <div>
