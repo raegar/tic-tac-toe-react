@@ -16,13 +16,17 @@ function Square (props) {
         super(props);
         this.state = {
             squares: Array(9).fill(null),
+            xIsNext: true,
         };
     }
 
     handleClick(i) {
         const squares = this.state.squares.slice(); //create copy of array
-        squares[i] = '🍪'; //modify copy
-        this.setState({squares: squares}); //replace original array
+        squares[i] = this.state.xIsNext ? '🥛' : '🍪'; //modify copy
+        this.setState({
+            squares: squares,
+            xIsNext: !this.state.xIsNext,
+        }); //replace original array
     }
     
     renderSquare(i) {
