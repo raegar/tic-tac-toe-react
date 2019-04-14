@@ -32,6 +32,14 @@ body {
     text-align: center;
     width: 34px;
   }
+
+  .history-button {
+    background: rgb(187, 197, 230);
+    border: 1px solid rgb(0, 194, 0);
+    height: 28px;
+    width: 128px;
+    text-align: center;
+  }
   
   .square:focus {
     outline: none;
